@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: student-score-regression
+    runtime: python
+    plan: free
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.14
+    buildCommand: pip install -r requirements.txt   # chạy 1 lần khi build
+    startCommand: >-
+      voila app.ipynb --no-browser
+      --Voila.ip=0.0.0.0 --Voila.port=$PORT
